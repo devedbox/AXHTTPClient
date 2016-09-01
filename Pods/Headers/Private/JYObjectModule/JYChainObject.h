@@ -1,0 +1,1 @@
+../../../JYObjectModule/JYObjectModule/Models/JYChainObject.h

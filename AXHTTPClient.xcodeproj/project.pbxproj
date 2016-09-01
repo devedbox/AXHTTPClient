@@ -15,6 +15,16 @@
 		0131B5E81D7829870053B80B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0131B5E61D7829870053B80B /* LaunchScreen.storyboard */; };
 		0131B5F31D7829870053B80B /* AXHTTPClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0131B5F21D7829870053B80B /* AXHTTPClientTests.m */; };
 		0131B5FE1D7829870053B80B /* AXHTTPClientUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0131B5FD1D7829870053B80B /* AXHTTPClientUITests.m */; };
+		0131B6231D7829F10053B80B /* AXHTTPClient.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0131B60E1D7829F10053B80B /* AXHTTPClient.bundle */; };
+		0131B6241D7829F10053B80B /* AXHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0131B6101D7829F10053B80B /* AXHTTPClient.m */; };
+		0131B6251D7829F10053B80B /* AESCrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = 0131B6141D7829F10053B80B /* AESCrypt.m */; };
+		0131B6261D7829F10053B80B /* NSData+AES256Cryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0131B6161D7829F10053B80B /* NSData+AES256Cryptor.m */; };
+		0131B6271D7829F10053B80B /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 0131B6181D7829F10053B80B /* NSData+Base64.m */; };
+		0131B6281D7829F10053B80B /* NSData+CommonCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 0131B61A1D7829F10053B80B /* NSData+CommonCrypto.m */; };
+		0131B6291D7829F10053B80B /* NSString+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 0131B61C1D7829F10053B80B /* NSString+Base64.m */; };
+		0131B62A1D7829F10053B80B /* AXResponseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0131B6201D7829F10053B80B /* AXResponseObject.m */; };
+		0131B62B1D7829F10053B80B /* NSError+AXHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0131B6221D7829F10053B80B /* NSError+AXHTTPClient.m */; };
+		410C00E944ADF61CF3A18BB0 /* libPods-AXHTTPClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9EC22DEF4F33E4F9C4795B3 /* libPods-AXHTTPClient.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +61,27 @@
 		0131B5F91D7829870053B80B /* AXHTTPClientUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AXHTTPClientUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0131B5FD1D7829870053B80B /* AXHTTPClientUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AXHTTPClientUITests.m; sourceTree = "<group>"; };
 		0131B5FF1D7829870053B80B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0131B60E1D7829F10053B80B /* AXHTTPClient.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AXHTTPClient.bundle; sourceTree = "<group>"; };
+		0131B60F1D7829F10053B80B /* AXHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AXHTTPClient.h; sourceTree = "<group>"; };
+		0131B6101D7829F10053B80B /* AXHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AXHTTPClient.m; sourceTree = "<group>"; };
+		0131B6131D7829F10053B80B /* AESCrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AESCrypt.h; sourceTree = "<group>"; };
+		0131B6141D7829F10053B80B /* AESCrypt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AESCrypt.m; sourceTree = "<group>"; };
+		0131B6151D7829F10053B80B /* NSData+AES256Cryptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+AES256Cryptor.h"; sourceTree = "<group>"; };
+		0131B6161D7829F10053B80B /* NSData+AES256Cryptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+AES256Cryptor.m"; sourceTree = "<group>"; };
+		0131B6171D7829F10053B80B /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
+		0131B6181D7829F10053B80B /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
+		0131B6191D7829F10053B80B /* NSData+CommonCrypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+CommonCrypto.h"; sourceTree = "<group>"; };
+		0131B61A1D7829F10053B80B /* NSData+CommonCrypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+CommonCrypto.m"; sourceTree = "<group>"; };
+		0131B61B1D7829F10053B80B /* NSString+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Base64.h"; sourceTree = "<group>"; };
+		0131B61C1D7829F10053B80B /* NSString+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Base64.m"; sourceTree = "<group>"; };
+		0131B61D1D7829F10053B80B /* AXHTTPStatusCodes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AXHTTPStatusCodes.h; sourceTree = "<group>"; };
+		0131B61F1D7829F10053B80B /* AXResponseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AXResponseObject.h; sourceTree = "<group>"; };
+		0131B6201D7829F10053B80B /* AXResponseObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AXResponseObject.m; sourceTree = "<group>"; };
+		0131B6211D7829F10053B80B /* NSError+AXHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+AXHTTPClient.h"; sourceTree = "<group>"; };
+		0131B6221D7829F10053B80B /* NSError+AXHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+AXHTTPClient.m"; sourceTree = "<group>"; };
+		4F69F69C81FD5C83859C59D2 /* Pods-AXHTTPClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AXHTTPClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AXHTTPClient/Pods-AXHTTPClient.debug.xcconfig"; sourceTree = "<group>"; };
+		7A4E4A170940A6E819D1FD16 /* Pods-AXHTTPClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AXHTTPClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-AXHTTPClient/Pods-AXHTTPClient.release.xcconfig"; sourceTree = "<group>"; };
+		C9EC22DEF4F33E4F9C4795B3 /* libPods-AXHTTPClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AXHTTPClient.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				410C00E944ADF61CF3A18BB0 /* libPods-AXHTTPClient.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +117,8 @@
 				0131B5F11D7829870053B80B /* AXHTTPClientTests */,
 				0131B5FC1D7829870053B80B /* AXHTTPClientUITests */,
 				0131B5D61D7829870053B80B /* Products */,
+				D0DEBD12D30067E37D85CA17 /* Pods */,
+				129036AF778CE26D7B4D338C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +139,7 @@
 				0131B5DC1D7829870053B80B /* AppDelegate.m */,
 				0131B5DE1D7829870053B80B /* ViewController.h */,
 				0131B5DF1D7829870053B80B /* ViewController.m */,
+				0131B60D1D7829F10053B80B /* AXHTTPClient */,
 				0131B5E11D7829870053B80B /* Main.storyboard */,
 				0131B5E41D7829870053B80B /* Assets.xcassets */,
 				0131B5E61D7829870053B80B /* LaunchScreen.storyboard */,
@@ -140,6 +175,72 @@
 			path = AXHTTPClientUITests;
 			sourceTree = "<group>";
 		};
+		0131B60D1D7829F10053B80B /* AXHTTPClient */ = {
+			isa = PBXGroup;
+			children = (
+				0131B60F1D7829F10053B80B /* AXHTTPClient.h */,
+				0131B6101D7829F10053B80B /* AXHTTPClient.m */,
+				0131B60E1D7829F10053B80B /* AXHTTPClient.bundle */,
+				0131B6111D7829F10053B80B /* Core */,
+			);
+			path = AXHTTPClient;
+			sourceTree = "<group>";
+		};
+		0131B6111D7829F10053B80B /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				0131B6211D7829F10053B80B /* NSError+AXHTTPClient.h */,
+				0131B6221D7829F10053B80B /* NSError+AXHTTPClient.m */,
+				0131B61D1D7829F10053B80B /* AXHTTPStatusCodes.h */,
+				0131B61E1D7829F10053B80B /* Models */,
+				0131B6121D7829F10053B80B /* AESCrypt */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		0131B6121D7829F10053B80B /* AESCrypt */ = {
+			isa = PBXGroup;
+			children = (
+				0131B6131D7829F10053B80B /* AESCrypt.h */,
+				0131B6141D7829F10053B80B /* AESCrypt.m */,
+				0131B6151D7829F10053B80B /* NSData+AES256Cryptor.h */,
+				0131B6161D7829F10053B80B /* NSData+AES256Cryptor.m */,
+				0131B6171D7829F10053B80B /* NSData+Base64.h */,
+				0131B6181D7829F10053B80B /* NSData+Base64.m */,
+				0131B6191D7829F10053B80B /* NSData+CommonCrypto.h */,
+				0131B61A1D7829F10053B80B /* NSData+CommonCrypto.m */,
+				0131B61B1D7829F10053B80B /* NSString+Base64.h */,
+				0131B61C1D7829F10053B80B /* NSString+Base64.m */,
+			);
+			path = AESCrypt;
+			sourceTree = "<group>";
+		};
+		0131B61E1D7829F10053B80B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0131B61F1D7829F10053B80B /* AXResponseObject.h */,
+				0131B6201D7829F10053B80B /* AXResponseObject.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		129036AF778CE26D7B4D338C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C9EC22DEF4F33E4F9C4795B3 /* libPods-AXHTTPClient.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D0DEBD12D30067E37D85CA17 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4F69F69C81FD5C83859C59D2 /* Pods-AXHTTPClient.debug.xcconfig */,
+				7A4E4A170940A6E819D1FD16 /* Pods-AXHTTPClient.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -147,9 +248,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0131B6021D7829870053B80B /* Build configuration list for PBXNativeTarget "AXHTTPClient" */;
 			buildPhases = (
+				E8AABDFA3812D5EBBE64441E /* [CP] Check Pods Manifest.lock */,
 				0131B5D11D7829870053B80B /* Sources */,
 				0131B5D21D7829870053B80B /* Frameworks */,
 				0131B5D31D7829870053B80B /* Resources */,
+				9AEEA3FD36CC7EE3D717EA9E /* [CP] Embed Pods Frameworks */,
+				A9733241CCD9CE22B12C473B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -246,6 +350,7 @@
 				0131B5E81D7829870053B80B /* LaunchScreen.storyboard in Resources */,
 				0131B5E51D7829870053B80B /* Assets.xcassets in Resources */,
 				0131B5E31D7829870053B80B /* Main.storyboard in Resources */,
+				0131B6231D7829F10053B80B /* AXHTTPClient.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,12 +370,68 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		9AEEA3FD36CC7EE3D717EA9E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AXHTTPClient/Pods-AXHTTPClient-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A9733241CCD9CE22B12C473B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AXHTTPClient/Pods-AXHTTPClient-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E8AABDFA3812D5EBBE64441E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0131B5D11D7829870053B80B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0131B6291D7829F10053B80B /* NSString+Base64.m in Sources */,
+				0131B6281D7829F10053B80B /* NSData+CommonCrypto.m in Sources */,
 				0131B5E01D7829870053B80B /* ViewController.m in Sources */,
+				0131B6241D7829F10053B80B /* AXHTTPClient.m in Sources */,
+				0131B6261D7829F10053B80B /* NSData+AES256Cryptor.m in Sources */,
+				0131B62B1D7829F10053B80B /* NSError+AXHTTPClient.m in Sources */,
+				0131B6271D7829F10053B80B /* NSData+Base64.m in Sources */,
+				0131B62A1D7829F10053B80B /* AXResponseObject.m in Sources */,
+				0131B6251D7829F10053B80B /* AESCrypt.m in Sources */,
 				0131B5DD1D7829870053B80B /* AppDelegate.m in Sources */,
 				0131B5DA1D7829870053B80B /* main.m in Sources */,
 			);
@@ -411,6 +572,7 @@
 		};
 		0131B6031D7829870053B80B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4F69F69C81FD5C83859C59D2 /* Pods-AXHTTPClient.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AXHTTPClient/Info.plist;
@@ -422,6 +584,7 @@
 		};
 		0131B6041D7829870053B80B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7A4E4A170940A6E819D1FD16 /* Pods-AXHTTPClient.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AXHTTPClient/Info.plist;
@@ -496,6 +659,7 @@
 				0131B6041D7829870053B80B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0131B6051D7829870053B80B /* Build configuration list for PBXNativeTarget "AXHTTPClientTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +668,7 @@
 				0131B6071D7829870053B80B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0131B6081D7829870053B80B /* Build configuration list for PBXNativeTarget "AXHTTPClientUITests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +677,7 @@
 				0131B60A1D7829870053B80B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

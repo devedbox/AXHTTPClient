@@ -5,6 +5,22 @@
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "0131B5D41D7829870053B80B"
+               BuildableName = "AXHTTPClient.app"
+               BlueprintName = "AXHTTPClient"
+               ReferencedContainer = "container:AXHTTPClient.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
    </BuildAction>
    <TestAction
       buildConfiguration = "Debug"
@@ -12,7 +28,36 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "0131B5ED1D7829870053B80B"
+               BuildableName = "AXHTTPClientTests.xctest"
+               BlueprintName = "AXHTTPClientTests"
+               ReferencedContainer = "container:AXHTTPClient.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "0131B5F81D7829870053B80B"
+               BuildableName = "AXHTTPClientUITests.xctest"
+               BlueprintName = "AXHTTPClientUITests"
+               ReferencedContainer = "container:AXHTTPClient.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "0131B5D41D7829870053B80B"
+            BuildableName = "AXHTTPClient.app"
+            BlueprintName = "AXHTTPClient"
+            ReferencedContainer = "container:AXHTTPClient.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -26,6 +71,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "0131B5D41D7829870053B80B"
+            BuildableName = "AXHTTPClient.app"
+            BlueprintName = "AXHTTPClient"
+            ReferencedContainer = "container:AXHTTPClient.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -35,6 +90,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "0131B5D41D7829870053B80B"
+            BuildableName = "AXHTTPClient.app"
+            BlueprintName = "AXHTTPClient"
+            ReferencedContainer = "container:AXHTTPClient.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
