@@ -24,6 +24,15 @@
 		0131B6291D7829F10053B80B /* NSString+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 0131B61C1D7829F10053B80B /* NSString+Base64.m */; };
 		0131B62A1D7829F10053B80B /* AXResponseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0131B6201D7829F10053B80B /* AXResponseObject.m */; };
 		0131B62B1D7829F10053B80B /* NSError+AXHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0131B6221D7829F10053B80B /* NSError+AXHTTPClient.m */; };
+		0131B62D1D7830AF0053B80B /* AXHTTPClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 0131B60F1D7829F10053B80B /* AXHTTPClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0131B62E1D7830BF0053B80B /* NSError+AXHTTPClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 0131B6211D7829F10053B80B /* NSError+AXHTTPClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0131B62F1D7830C50053B80B /* AXResponseObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 0131B61F1D7829F10053B80B /* AXResponseObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0131B6301D7830CA0053B80B /* AESCrypt.h in Headers */ = {isa = PBXBuildFile; fileRef = 0131B6131D7829F10053B80B /* AESCrypt.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0131B6311D7830D00053B80B /* NSData+AES256Cryptor.h in Headers */ = {isa = PBXBuildFile; fileRef = 0131B6151D7829F10053B80B /* NSData+AES256Cryptor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0131B6321D7830DE0053B80B /* NSData+Base64.h in Headers */ = {isa = PBXBuildFile; fileRef = 0131B6171D7829F10053B80B /* NSData+Base64.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0131B6331D7830EA0053B80B /* NSData+CommonCrypto.h in Headers */ = {isa = PBXBuildFile; fileRef = 0131B6191D7829F10053B80B /* NSData+CommonCrypto.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0131B6341D7830EA0053B80B /* NSString+Base64.h in Headers */ = {isa = PBXBuildFile; fileRef = 0131B61B1D7829F10053B80B /* NSString+Base64.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0131B6351D7830F30053B80B /* AXHTTPStatusCodes.h in Headers */ = {isa = PBXBuildFile; fileRef = 0131B61D1D7829F10053B80B /* AXHTTPStatusCodes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		410C00E944ADF61CF3A18BB0 /* libPods-AXHTTPClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9EC22DEF4F33E4F9C4795B3 /* libPods-AXHTTPClient.a */; };
 /* End PBXBuildFile section */
 
@@ -243,6 +252,25 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		0131B62C1D7830A70053B80B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0131B62D1D7830AF0053B80B /* AXHTTPClient.h in Headers */,
+				0131B62F1D7830C50053B80B /* AXResponseObject.h in Headers */,
+				0131B6301D7830CA0053B80B /* AESCrypt.h in Headers */,
+				0131B6311D7830D00053B80B /* NSData+AES256Cryptor.h in Headers */,
+				0131B6321D7830DE0053B80B /* NSData+Base64.h in Headers */,
+				0131B6331D7830EA0053B80B /* NSData+CommonCrypto.h in Headers */,
+				0131B6341D7830EA0053B80B /* NSString+Base64.h in Headers */,
+				0131B6351D7830F30053B80B /* AXHTTPStatusCodes.h in Headers */,
+				0131B62E1D7830BF0053B80B /* NSError+AXHTTPClient.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		0131B5D41D7829870053B80B /* AXHTTPClient */ = {
 			isa = PBXNativeTarget;
@@ -254,6 +282,7 @@
 				0131B5D31D7829870053B80B /* Resources */,
 				9AEEA3FD36CC7EE3D717EA9E /* [CP] Embed Pods Frameworks */,
 				A9733241CCD9CE22B12C473B /* [CP] Copy Pods Resources */,
+				0131B62C1D7830A70053B80B /* Headers */,
 			);
 			buildRules = (
 			);

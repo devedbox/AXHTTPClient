@@ -14,9 +14,9 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '7.0'
 
   s.source       = { :git => 'https://github.com/devedbox/AXHTTPClient.git', :tag => '0.0.1' }
-  s.source_files  = 'AXHTTPClient/AXHTTPClient/*.{h,m}', 'AXHTTPClient/AXHTTPClient/Core/*.{h,m}', 'AXHTTPClient/AXHTTPClient/Core/Models/*.{h,m}', 'AXHTTPClient/AXHTTPClient/Core/AESCrypt/*.{h,a}'
+  s.source_files  = 'AXHTTPClient/AXHTTPClient/*.{h,m}', 'AXHTTPClient/AXHTTPClient/Core/*.{h,m}', 'AXHTTPClient/AXHTTPClient/Core/Models/*.{h,m}', 'AXHTTPClient/AXHTTPClient/Core/AESCrypt/*.{h,m}'
 
-  s.module_map = 'AXHTTPClient/module.modulemap'
+#  s.module_map = 'AXHTTPClient/module.modulemap'
 
   s.resource  = 'AXHTTPClient/AXHTTPClient/AXHTTPClient.bundle'
 
