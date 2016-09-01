@@ -32,11 +32,7 @@
 #import <JYObjectModule/RLMObject+KeyValue.h>
 #import <JYObjectModule/JYRealmManager.h>
 #import <CocoaSecurity/CocoaSecurity.h>
-/*
-#import "AESCrypt.h"
-#import "NSString+Base64.h"
-#import "NSData+AES256Cryptor.h"
- */
+#import <AXAESCrypt/AESCrypt.h>
 
 NSString *const AXHTTPClientInfoBaseURLKey = @"AXHTTPClientInfoBaseURLKey";
 NSString *const AXHTTPCompletionUserInfoDurationKey = @"AXHTTPCompletionUserInfoDurationKey";
@@ -156,7 +152,6 @@ NSString *const AXHTTPCompletionUserInfoStatusCodeKey = @"AXHTTPCompletionUserIn
 
 - (void)setDefaultSerializer
 {
-    /*
     AFJSONRequestSerializer *requestSerializer = [AFJSONRequestSerializer serializer];
     [requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     self.requestSerializer = requestSerializer;
@@ -211,7 +206,6 @@ NSString *const AXHTTPCompletionUserInfoStatusCodeKey = @"AXHTTPCompletionUserIn
         
         [self.requestSerializer setValue:signature forHTTPHeaderField:@"Content-Signature"];
     }
-     */
 }
 
 - (NSURLSessionDataTask *_Nullable)GET:(AXHTTPClientRequest *_Nonnull)request completion:(AXHTTPCompletion _Nullable)completion
