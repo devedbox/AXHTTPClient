@@ -17,10 +17,6 @@
 		0131B5FE1D7829870053B80B /* AXHTTPClientUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0131B5FD1D7829870053B80B /* AXHTTPClientUITests.m */; };
 		0131B6231D7829F10053B80B /* AXHTTPClient.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0131B60E1D7829F10053B80B /* AXHTTPClient.bundle */; };
 		0131B6241D7829F10053B80B /* AXHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0131B6101D7829F10053B80B /* AXHTTPClient.m */; };
-		0131B6251D7829F10053B80B /* AESCrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = 0131B6141D7829F10053B80B /* AESCrypt.m */; };
-		0131B6261D7829F10053B80B /* NSData+AES256Cryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0131B6161D7829F10053B80B /* NSData+AES256Cryptor.m */; };
-		0131B6271D7829F10053B80B /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 0131B6181D7829F10053B80B /* NSData+Base64.m */; };
-		0131B6291D7829F10053B80B /* NSString+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 0131B61C1D7829F10053B80B /* NSString+Base64.m */; };
 		0131B62A1D7829F10053B80B /* AXResponseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0131B6201D7829F10053B80B /* AXResponseObject.m */; };
 		0131B62B1D7829F10053B80B /* NSError+AXHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0131B6221D7829F10053B80B /* NSError+AXHTTPClient.m */; };
 		410C00E944ADF61CF3A18BB0 /* libPods-AXHTTPClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9EC22DEF4F33E4F9C4795B3 /* libPods-AXHTTPClient.a */; };
@@ -63,14 +59,6 @@
 		0131B60E1D7829F10053B80B /* AXHTTPClient.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AXHTTPClient.bundle; sourceTree = "<group>"; };
 		0131B60F1D7829F10053B80B /* AXHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AXHTTPClient.h; sourceTree = "<group>"; };
 		0131B6101D7829F10053B80B /* AXHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AXHTTPClient.m; sourceTree = "<group>"; };
-		0131B6131D7829F10053B80B /* AESCrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AESCrypt.h; sourceTree = "<group>"; };
-		0131B6141D7829F10053B80B /* AESCrypt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AESCrypt.m; sourceTree = "<group>"; };
-		0131B6151D7829F10053B80B /* NSData+AES256Cryptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+AES256Cryptor.h"; sourceTree = "<group>"; };
-		0131B6161D7829F10053B80B /* NSData+AES256Cryptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+AES256Cryptor.m"; sourceTree = "<group>"; };
-		0131B6171D7829F10053B80B /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
-		0131B6181D7829F10053B80B /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
-		0131B61B1D7829F10053B80B /* NSString+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Base64.h"; sourceTree = "<group>"; };
-		0131B61C1D7829F10053B80B /* NSString+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Base64.m"; sourceTree = "<group>"; };
 		0131B61D1D7829F10053B80B /* AXHTTPStatusCodes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AXHTTPStatusCodes.h; sourceTree = "<group>"; };
 		0131B61F1D7829F10053B80B /* AXResponseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AXResponseObject.h; sourceTree = "<group>"; };
 		0131B6201D7829F10053B80B /* AXResponseObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AXResponseObject.m; sourceTree = "<group>"; };
@@ -190,24 +178,8 @@
 				0131B6221D7829F10053B80B /* NSError+AXHTTPClient.m */,
 				0131B61D1D7829F10053B80B /* AXHTTPStatusCodes.h */,
 				0131B61E1D7829F10053B80B /* Models */,
-				0131B6121D7829F10053B80B /* AESCrypt */,
 			);
 			path = Core;
-			sourceTree = "<group>";
-		};
-		0131B6121D7829F10053B80B /* AESCrypt */ = {
-			isa = PBXGroup;
-			children = (
-				0131B6131D7829F10053B80B /* AESCrypt.h */,
-				0131B6141D7829F10053B80B /* AESCrypt.m */,
-				0131B6151D7829F10053B80B /* NSData+AES256Cryptor.h */,
-				0131B6161D7829F10053B80B /* NSData+AES256Cryptor.m */,
-				0131B6171D7829F10053B80B /* NSData+Base64.h */,
-				0131B6181D7829F10053B80B /* NSData+Base64.m */,
-				0131B61B1D7829F10053B80B /* NSString+Base64.h */,
-				0131B61C1D7829F10053B80B /* NSString+Base64.m */,
-			);
-			path = AESCrypt;
 			sourceTree = "<group>";
 		};
 		0131B61E1D7829F10053B80B /* Models */ = {
@@ -418,14 +390,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0131B6291D7829F10053B80B /* NSString+Base64.m in Sources */,
 				0131B5E01D7829870053B80B /* ViewController.m in Sources */,
 				0131B6241D7829F10053B80B /* AXHTTPClient.m in Sources */,
-				0131B6261D7829F10053B80B /* NSData+AES256Cryptor.m in Sources */,
 				0131B62B1D7829F10053B80B /* NSError+AXHTTPClient.m in Sources */,
-				0131B6271D7829F10053B80B /* NSData+Base64.m in Sources */,
 				0131B62A1D7829F10053B80B /* AXResponseObject.m in Sources */,
-				0131B6251D7829F10053B80B /* AESCrypt.m in Sources */,
 				0131B5DD1D7829870053B80B /* AppDelegate.m in Sources */,
 				0131B5DA1D7829870053B80B /* main.m in Sources */,
 			);

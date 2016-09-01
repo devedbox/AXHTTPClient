@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>AXAESCrypt.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>CocoaSecurity.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -47,11 +52,6 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0568858AED59228D577376F100B29BD3</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>1E80C6C0FD0B2D9A16D54E521E015695</key>
 		<dict>
 			<key>primary</key>
@@ -72,6 +72,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>6624C9A9436B7476DAA56D5DA328ED6D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>928353533005A4198EBDA5B700D37B64</key>
 		<dict>
 			<key>primary</key>
@@ -83,6 +88,11 @@
 			<true/>
 		</dict>
 		<key>B69BB09F733FABAF2B6E2B8335C031E8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C6CA02B12A299B38DB073B3EC66180B0</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -6,7 +6,7 @@
 //  Copyright © 2016年 com.KEEPStudio. All rights reserved.
 //
 
-#import "NSData+AES256Cryptor.h"
+#import "AESCrypt.h"
 #import <CommonCrypto/CommonCrypto.h>
 
 @implementation NSData (AES256Cryptor)

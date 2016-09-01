@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Gurpartap Singh. All rights reserved.
 //
 
-#import "NSData+Base64.h"
+#import "AESCrypt.h"
 
 @implementation NSData (Base64Additions)
 

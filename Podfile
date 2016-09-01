@@ -5,4 +5,5 @@ inhibit_all_warnings!
 target 'AXHTTPClient' do
     pod 'JYObjectModule'
     pod 'AFNetworking'
+    pod 'AXAESCrypt'
 end
