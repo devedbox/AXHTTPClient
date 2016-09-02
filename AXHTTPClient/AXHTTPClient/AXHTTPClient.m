@@ -48,14 +48,14 @@ NSString *const AXHTTPCompletionUserInfoStatusCodeKey = @"AXHTTPCompletionUserIn
         NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
         configuration.timeoutIntervalForRequest = [self timeoutIntervalForRequest];
         NSDictionary *clientInfo = [NSDictionary dictionaryWithContentsOfFile:[self infoPlistPath]];
-        _sharedInstance = [[self alloc] initWithBaseURL:[clientInfo objectForKey:AXHTTPClientInfoBaseURLKey] sessionConfiguration:configuration];
+        _sharedInstance = [[self alloc] initWithBaseURL:[NSURL URLWithString:[clientInfo objectForKey:AXHTTPClientInfoBaseURLKey]] sessionConfiguration:configuration];
     });
     return _sharedInstance;
 }
 
 + (NSString *)infoPlistPath {
     // Sample:
-    return [[NSDictionary dictionaryWithContentsOfFile:[[NSBundle bundleForClass:[AXHTTPClient class]] pathForResource:@"AXHTTPClient.bundle/AXHTTPClientInfoSample" ofType:@"plist"]] objectForKey:AXHTTPClientInfoBaseURLKey];
+    return [[NSBundle bundleForClass:[AXHTTPClient class]] pathForResource:@"AXHTTPClient.bundle/AXHTTPClientInfoSample" ofType:@"plist"];
 }
 
 + (NSTimeInterval)timeoutIntervalForRequest {
