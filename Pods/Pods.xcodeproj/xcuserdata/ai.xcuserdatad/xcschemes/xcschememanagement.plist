@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>AXExtensions.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>CocoaSecurity.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -25,6 +30,11 @@
 			<false/>
 		</dict>
 		<key>MJExtension.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>MJRefresh.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -49,6 +59,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>pop.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -67,12 +82,32 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>33DA5B419671C273AE2A4778AB374FEF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>59FE531202C1E6593638A5276953A3D1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>5B205F50A9EF0B3FE80E849510A05096</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>60C0909341C3E90029AE69E28064A253</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>6624C9A9436B7476DAA56D5DA328ED6D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>88CB3E6B2B9C79CD5B3545F5DE95CF40</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -88,11 +123,6 @@
 			<true/>
 		</dict>
 		<key>B69BB09F733FABAF2B6E2B8335C031E8</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C6CA02B12A299B38DB073B3EC66180B0</key>
 		<dict>
 			<key>primary</key>
 			<true/>

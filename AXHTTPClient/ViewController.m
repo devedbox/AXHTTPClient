@@ -32,6 +32,8 @@
     JYPostObject *order = [JYPostObject objectWithKeyValue:orderInfo];
     
     NSLog(@"object: %@", order);
+    
+    NSLog(@"URLString: %@", AXHTTPClientRequestURLString(@"general/verifycode", @[@{@"userId":@"17017417041929"}, @{@"phone":@"15680002585"}, @{@"keywords":@"中国"}]));
 }
 
 - (void)didReceiveMemoryWarning {

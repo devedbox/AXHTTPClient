@@ -6,4 +6,5 @@ target 'AXHTTPClient' do
     pod 'JYObjectModule'
     pod 'AFNetworking'
     pod 'AXAESCrypt'
+    pod 'AXExtensions'
 end

@@ -26,13 +26,14 @@
 #import "AXHTTPClient.h"
 #import "AXResponseObject.h"
 #import <objc/runtime.h>
+#import <AXAESCrypt/AESCrypt.h>
 #import <CocoaSecurity/Base64.h>
 #import <MJExtension/MJExtension.h>
 #import <JYObjectModule/JYRLMObject.h>
-#import <JYObjectModule/RLMObject+KeyValue.h>
-#import <JYObjectModule/JYRealmManager.h>
 #import <CocoaSecurity/CocoaSecurity.h>
-#import <AXAESCrypt/AESCrypt.h>
+#import <JYObjectModule/JYRealmManager.h>
+#import <JYObjectModule/RLMObject+KeyValue.h>
+#import <AXExtensions/NSString+AXExtensions.h>
 
 NSString *const AXHTTPClientInfoBaseURLKey = @"AXHTTPClientInfoBaseURLKey";
 NSString *const AXHTTPCompletionUserInfoDurationKey = @"AXHTTPCompletionUserInfoDurationKey";
@@ -611,3 +612,40 @@ NSString *const AXHTTPCompletionUserInfoStatusCodeKey = @"AXHTTPCompletionUserIn
 
 @implementation AXHTTPClientRequest
 @end
+
+AXHTTPClientRequest *_Nonnull AXHTTPClientStoredRequest(NSString *_Nonnull URLString, id _Nullable parameters) {
+    AXHTTPClientRequest *request = [AXHTTPClientRequest new];
+    request.URLString = URLString;
+    request.parameters = parameters;
+    request.shouldStoreToRealm = YES;
+    return request;
+}
+
+AXHTTPClientRequest *_Nonnull AXHTTPClientUnstoredRequest(NSString *_Nonnull URLString, id _Nullable parameters) {
+    AXHTTPClientRequest *request = [AXHTTPClientRequest new];
+    request.URLString = URLString;
+    request.parameters = parameters;
+    request.shouldStoreToRealm = NO;
+    return request;
+}
+
+NSString *_Nonnull AXHTTPClientRequestURLString(NSString *_Nonnull originalURLString, NSArray<NSDictionary *> *_Nullable parameters) {
+    NSMutableString *paramString = [@"" mutableCopy];
+    // Get params from parameters.
+    for (int i = 0; i < parameters.count; i++) {
+        NSDictionary *param = parameters[i];
+        if (param.count != 1) {
+            [NSException raise:@"AXHTTPClientRequestURLStringException" format:@"Param dictionary of the URLString should be only one single key-value object. For current is %@", param];
+        }
+        // Get key and value of params.
+        //
+        NSString *key = [[param allKeys] firstObject];
+        NSString *value = [[param allValues] firstObject];
+        
+        paramString = [[paramString stringByAppendingPathComponent:[key encodeToPercentEscapeString]] mutableCopy];
+        paramString = [[paramString stringByAppendingPathComponent:[value encodeToPercentEscapeString]] mutableCopy];;
+    }
+    
+    NSString *URLString = [originalURLString stringByAppendingPathComponent:paramString];
+    return URLString;
+}
