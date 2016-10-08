@@ -114,10 +114,10 @@ NSString *const AXHTTPCompletionUserInfoStatusCodeKey = @"AXHTTPCompletionUserIn
     self.responseSerializer = [AFHTTPResponseSerializer serializer];
     [self.responseSerializer setAcceptableContentTypes:[NSSet setWithObjects:@"application/json", @"text/html",@"text/json",@"text/javascript", nil]];
     /*
-    [self.requestSerializer setValue:@"multipart/form-data" forHTTPHeaderField:@"enctype"];
-    if (!self.isSecure) {
-        [self.requestSerializer setValue:[AXUserRealm defaultUserRealm].token forHTTPHeaderField:@"Authorization"];
-    }
+     [self.requestSerializer setValue:@"multipart/form-data" forHTTPHeaderField:@"enctype"];
+     if (!self.isSecure) {
+     [self.requestSerializer setValue:[AXUserRealm defaultUserRealm].token forHTTPHeaderField:@"Authorization"];
+     }
      */
     return [super POST:URLString parameters:parameters constructingBodyWithBlock:block success:success failure:failure];
 }
@@ -129,10 +129,10 @@ NSString *const AXHTTPCompletionUserInfoStatusCodeKey = @"AXHTTPCompletionUserIn
     self.responseSerializer = [AFHTTPResponseSerializer serializer];
     [self.responseSerializer setAcceptableContentTypes:[NSSet setWithObjects:@"application/json", @"text/html",@"text/json",@"text/javascript", nil]];
     /*
-    [self.requestSerializer setValue:@"multipart/form-data" forHTTPHeaderField:@"enctype"];
-    if (!self.isSecure) {
-        [self.requestSerializer setValue:[AXUserRealm defaultUserRealm].token forHTTPHeaderField:@"Authorization"];
-    }
+     [self.requestSerializer setValue:@"multipart/form-data" forHTTPHeaderField:@"enctype"];
+     if (!self.isSecure) {
+     [self.requestSerializer setValue:[AXUserRealm defaultUserRealm].token forHTTPHeaderField:@"Authorization"];
+     }
      */
     return [super POST:URLString parameters:parameters constructingBodyWithBlock:block progress:uploadProgress success:success failure:failure];
 }
@@ -297,6 +297,13 @@ NSString *const AXHTTPCompletionUserInfoStatusCodeKey = @"AXHTTPCompletionUserIn
 
 - (void)handleRequestSuccessWithResponseObject:(id)object shouldStoreToRealm:(BOOL)storeToRealm requestDuration:(NSTimeInterval)duration compltion:(AXHTTPCompletion)completion
 {
+    if (object == nil) {
+        if (completion) {
+            completion(nil, nil, nil);
+        }
+        return;
+    }
+    
     AXResponseObject *response = [AXResponseObject mj_objectWithKeyValues:object];
     
     AXHTTPClientResponse *clientResp = [AXHTTPClientResponse new];
@@ -308,7 +315,7 @@ NSString *const AXHTTPCompletionUserInfoStatusCodeKey = @"AXHTTPCompletionUserIn
     }
     clientResp.response = resp;
     
-    NSDictionary *userInfo = @{AXHTTPCompletionUserInfoDurationKey:@(duration), AXHTTPCompletionUserInfoStatusCodeKey:clientResp.response[@"code"]};
+    NSDictionary *userInfo = @{AXHTTPCompletionUserInfoDurationKey:@(duration), AXHTTPCompletionUserInfoStatusCodeKey:clientResp.response[@"code"]?:@"__Unknown"};
     
     // JSON data convert failed.
     if (!response) {
