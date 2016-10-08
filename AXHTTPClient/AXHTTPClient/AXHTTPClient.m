@@ -299,7 +299,7 @@ NSString *const AXHTTPCompletionUserInfoStatusCodeKey = @"AXHTTPCompletionUserIn
 {
     if (object == nil) {
         if (completion) {
-            completion(nil, nil, nil);
+            completion(nil, nil, @{});
         }
         return;
     }
