@@ -163,7 +163,7 @@ NSString *_Nonnull AXHTTPClientRequestURLString(NSString *_Nonnull originalURLSt
 
 @interface AXHTTPClientResponse : NSObject
 /// Object type.
-@property(copy, nonatomic, nullable)   NSString *objType;
+@property(copy,   nonatomic, nullable) NSString *objType;
 /// Response full object.
 @property(strong, nonatomic, nonnull)  NSDictionary *response;
 /// Realm results for object/list.
@@ -172,5 +172,7 @@ NSString *_Nonnull AXHTTPClientRequestURLString(NSString *_Nonnull originalURLSt
 @property(strong, nonatomic, nullable) id object;
 /// Objects array of response.
 @property(strong, nonatomic, nullable) NSArray *objects;
+/// Page of the list object.
+@property(strong, nonatomic, nullable) id<JYPageObject> page;
 @end
 NS_ASSUME_NONNULL_END

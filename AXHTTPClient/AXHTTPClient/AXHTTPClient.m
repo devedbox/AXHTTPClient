@@ -420,6 +420,8 @@ NSString *const AXHTTPCompletionUserInfoStatusCodeKey = @"AXHTTPCompletionUserIn
                     [responseObjects addObject:responseObject];
                 }
             }
+            // Set the page to the client resp object.
+            clientResp.page = response.page;
             //
             if (responseObjects.count && storeToRealm && [cls shouldStoreToRealm]) {
                 NSError *error;
