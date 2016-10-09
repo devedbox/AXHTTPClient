@@ -297,9 +297,11 @@ NSString *const AXHTTPCompletionUserInfoStatusCodeKey = @"AXHTTPCompletionUserIn
 
 - (void)handleRequestSuccessWithResponseObject:(id)object shouldStoreToRealm:(BOOL)storeToRealm requestDuration:(NSTimeInterval)duration compltion:(AXHTTPCompletion)completion
 {
+    NSMutableDictionary *userInfo = [@{AXHTTPCompletionUserInfoDurationKey:@(duration)} mutableCopy];
+    
     if (object == nil) {
         if (completion) {
-            completion(nil, nil, @{});
+            completion(nil, nil, userInfo);
         }
         return;
     }
@@ -307,6 +309,9 @@ NSString *const AXHTTPCompletionUserInfoStatusCodeKey = @"AXHTTPCompletionUserIn
     AXResponseObject *response = [AXResponseObject mj_objectWithKeyValues:object];
     
     AXHTTPClientResponse *clientResp = [AXHTTPClientResponse new];
+    
+    userInfo[AXHTTPCompletionUserInfoStatusCodeKey] = clientResp.response[@"code"]?:@"__Unknown";
+    
     NSDictionary *resp;
     if ([object isKindOfClass:NSDictionary.class]) {
         resp = object;
@@ -314,8 +319,6 @@ NSString *const AXHTTPCompletionUserInfoStatusCodeKey = @"AXHTTPCompletionUserIn
         resp = [object mj_JSONObject];
     }
     clientResp.response = resp;
-    
-    NSDictionary *userInfo = @{AXHTTPCompletionUserInfoDurationKey:@(duration), AXHTTPCompletionUserInfoStatusCodeKey:clientResp.response[@"code"]?:@"__Unknown"};
     
     // JSON data convert failed.
     if (!response) {
@@ -466,7 +469,7 @@ NSString *const AXHTTPCompletionUserInfoStatusCodeKey = @"AXHTTPCompletionUserIn
         // Handle failure.
         [self requestDidFailWithStatusCode:statusCode];
         // Handle faild response and call the callback block.
-        NSError *error = [NSError errorWithDomain:AXURLResponseErrorDomin code:statusCode userInfo:@{NSLocalizedDescriptionKey:AXURLResponseStatusWithStatusCode(statusCode)}];
+        NSError *error = [NSError errorWithDomain:AXURLResponseErrorDomin code:(int)statusCode userInfo:@{NSLocalizedDescriptionKey:AXURLResponseStatusWithStatusCode(statusCode)}];
         //
         if (completion) completion(clientResp, error, userInfo);
     }

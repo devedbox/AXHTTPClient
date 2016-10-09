@@ -24,7 +24,8 @@
 #import <MJExtension/MJExtension.h>
 #import <objc/runtime.h>
 
-@implementation RLMObject (KeyValue)
+@implementation NSObject (KeyValue)
+
 - (NSDictionary *)keyValue {
     // Get the class schema.
     NSMutableDictionary *schema = [[self.class classSchemaWithClass:self.class] mutableCopy];
@@ -77,7 +78,7 @@
     // Convert object to completed object.
     object = [self convertObject:object withSchema:schema];
     
-    RLMObject *newObject = [[self alloc] initWithValue:[self cleanKeyValueWithObject:object]];
+    NSObject *newObject = [self mj_objectWithKeyValues:object];
     
     if (!newObject) {
         return [self new];
@@ -97,7 +98,7 @@
                 // Get property.
                 MJProperty *property = [MJProperty cachedPropertyWithProperty:class_getProperty(self, [key UTF8String])];
                 
-                static const char arrayPrefix[] = "RLMArray<";
+                static const char arrayPrefix[] = "NSArray<";
                 static const int arrayPrefixLen = sizeof(arrayPrefix) - 1;
                 const char *code = property.type.code.UTF8String;
                 
@@ -109,7 +110,7 @@
                 
                 if (objectClass != NULL) {
                     // Initialize a new RLMObject.
-                    RLMObject *childObject = [objectClass objectWithKeyValue:_obj];
+                    NSObject *childObject = [objectClass objectWithKeyValue:_obj];
                     
                     if (childObject) {
                         [[newObject valueForKey:key] addObject:childObject];
@@ -118,11 +119,11 @@
                     return [[self alloc] initWithValue:object];
                 }
             }
-        } else if ([obj isKindOfClass:[NSDictionary class]]) { // RLMObject.
+        } else if ([obj isKindOfClass:[NSDictionary class]]) { // NSObject.
             // Get property.
             MJProperty *property = [MJProperty cachedPropertyWithProperty:class_getProperty(self, [key UTF8String])];
-            // Initialize a new RLMObject.
-            RLMObject *childObject = [property.type.typeClass objectWithKeyValue:obj];
+            // Initialize a new NSObject.
+            NSObject *childObject = [property.type.typeClass objectWithKeyValue:obj];
             // Set child object to father object.
             [newObject setValue:childObject forKey:key];
         } else {
@@ -308,6 +309,12 @@
         // Get object if schema.
         id obj = objectSchema[key];
         
+        id object = mutableObject[key];
+        // Handle with NSNull object.
+        if ([mutableObject.allKeys containsObject:key] && [object isKindOfClass:[NSNull class]]) {
+            mutableObject[key] = [self appendNullIndicatorWithObject:[obj copy]];
+        }
+        
         if ([obj isKindOfClass:[NSDictionary class]]) {
             NSDictionary *childObject = [self convertObject:[mutableObject[key] copy] withSchema:objectSchema[key]];
             // Replace the child object.
@@ -321,5 +328,134 @@
     }
     
     return [mutableObject copy];
+}
+
++ (id _Nonnull)appendNullIndicatorWithObject:(id _Nonnull)object {
+    if ([object isKindOfClass:NSDictionary.class]) {
+        NSMutableDictionary *obj = [object mutableCopy];
+        // Append null.
+        NSArray *keys = [object allKeys];
+        
+        for (int i = 0; i < keys.count; i ++) {
+            id _obj = [self appendNullIndicatorWithObject:obj[keys[i]]];
+            [obj setObject:_obj forKey:keys[i]];
+        }
+        
+        return obj;
+    } else if ([object isKindOfClass:NSString.class]) {
+        return [object stringByAppendingString:@"_null"];
+    } else {
+        return object;
+    }
+}
+
+@end
+
+@implementation RLMObject (KeyValue)
+- (NSDictionary *)keyValue {
+    // Get the class schema.
+    NSMutableDictionary *schema = [[self.class classSchemaWithClass:self.class] mutableCopy];
+    // Set value to schema.
+    
+    NSArray *keys = [schema allKeys];
+    
+    for (NSString *key in keys) {
+        // Get object.
+        id obj = schema[key];
+        // Check type of object.
+        if ([obj isKindOfClass:[NSNumber class]] || [obj isKindOfClass:[NSString class]] || [obj isKindOfClass:[NSData class]] || [obj isKindOfClass:[NSDate class]]) { // Basic types.
+            schema[key] = [self valueForKey:key];
+        } else if ([obj isKindOfClass:[NSArray class]]) { // RLMArray.
+            // Set Object.
+            NSMutableArray *objects = [@[] mutableCopy];
+            
+            RLMArray *array = [self valueForKey:key];
+            
+            for (int i = 0; i < [array count]; i++) {
+                RLMObject *_obj = array[i];
+                
+                [objects addObject:_obj.keyValue];
+            }
+            
+            schema[key] = objects;
+        } else if ([obj isKindOfClass:[NSDictionary class]]) { // RLMObject.
+            schema[key] = [[self valueForKey:key] keyValue];
+        } else {
+            id obj = [self valueForKey:key];
+            if (obj) {
+                schema[key] = obj;
+            } else {
+                schema[key] = @"__unspecified";
+            }
+        }
+    }
+    return schema;
+}
+
++ (instancetype)objectWithKeyValue:(NSDictionary *)object {
+    if (!object || ![object isKindOfClass:NSDictionary.class]) {
+        return [self new];
+    }
+    // Get the class schema for the class.
+    NSDictionary *schema = [self classSchemaWithClass:self];
+    // Set value of the schema:
+    NSArray *keys = [schema allKeys];
+    
+    // Convert object to completed object.
+    object = [self convertObject:object withSchema:schema];
+    
+    RLMObject *newObject = [[self alloc] initWithValue:[self cleanKeyValueWithObject:object]];
+    
+    if (!newObject) {
+        return [self new];
+    }
+    
+    for (int i = 0; i < keys.count; i ++) {
+        // Key.
+        NSString *key = keys[i];
+        id obj = object[key];
+        // Check type of object.
+        if ([obj isKindOfClass:[NSNumber class]] || [obj isKindOfClass:[NSString class]] || [obj isKindOfClass:[NSData class]] || [obj isKindOfClass:[NSDate class]]) { // Basic types.
+            [newObject setValue:obj forKey:key];
+        } else if ([obj isKindOfClass:[NSArray class]]) { // RLMArray.
+            // Set Object.
+            for (int i = 0; i < [obj count]; i++) {
+                id _obj = obj[i];
+                // Get property.
+                MJProperty *property = [MJProperty cachedPropertyWithProperty:class_getProperty(self, [key UTF8String])];
+                
+                static const char arrayPrefix[] = "RLMArray<";
+                static const int arrayPrefixLen = sizeof(arrayPrefix) - 1;
+                const char *code = property.type.code.UTF8String;
+                
+                // get object class from type string - @"RLMArray<objectClassName>"
+                NSString *objectClassName = [[NSString alloc] initWithBytes:code + arrayPrefixLen length:strlen(code + arrayPrefixLen) - 1 // drop trailing >"
+                                                                   encoding:NSUTF8StringEncoding];
+                
+                Class objectClass = NSClassFromString(objectClassName);
+                
+                if (objectClass != NULL) {
+                    // Initialize a new RLMObject.
+                    RLMObject *childObject = [objectClass objectWithKeyValue:_obj];
+                    
+                    if (childObject) {
+                        [[newObject valueForKey:key] addObject:childObject];
+                    }
+                } else {
+                    return [[self alloc] initWithValue:object];
+                }
+            }
+        } else if ([obj isKindOfClass:[NSDictionary class]]) { // RLMObject.
+            // Get property.
+            MJProperty *property = [MJProperty cachedPropertyWithProperty:class_getProperty(self, [key UTF8String])];
+            // Initialize a new RLMObject.
+            RLMObject *childObject = [property.type.typeClass objectWithKeyValue:obj];
+            // Set child object to father object.
+            [newObject setValue:childObject forKey:key];
+        } else {
+            return [[self alloc] initWithValue:object];
+        }
+    }
+    return newObject;
 }
 @end

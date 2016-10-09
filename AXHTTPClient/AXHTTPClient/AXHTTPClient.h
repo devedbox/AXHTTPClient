@@ -168,9 +168,9 @@ NSString *_Nonnull AXHTTPClientRequestURLString(NSString *_Nonnull originalURLSt
 @property(strong, nonatomic, nonnull)  NSDictionary *response;
 /// Realm results for object/list.
 @property(strong, nonatomic, nullable) RLMResults *results;
-/// Object of resposne.
-@property(strong, nonatomic, nullable) JYRLMObject *object;
+/// Object of resposne for JYRLMObject and NSObject.
+@property(strong, nonatomic, nullable) id object;
 /// Objects array of response.
-@property(strong, nonatomic, nullable) NSArray<__kindof JYRLMObject *> *objects;
+@property(strong, nonatomic, nullable) NSArray *objects;
 @end
 NS_ASSUME_NONNULL_END
