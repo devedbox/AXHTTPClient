@@ -159,7 +159,7 @@ typedef NS_ENUM(int64_t, AXHTTPClientStatusCode) {
 AXHTTPClientRequest *_Nonnull AXHTTPClientStoredRequest(NSString *_Nonnull URLString, id _Nullable parameters);
 AXHTTPClientRequest *_Nonnull AXHTTPClientUnstoredRequest(NSString *_Nonnull URLString, id _Nullable parameters);
 
-NSString *_Nonnull AXHTTPClientRequestURLString(NSString *_Nonnull originalURLString, NSArray<NSDictionary *> *_Nullable parameters);
+NSString *_Nonnull AXHTTPClientRequestURLString(NSString *_Nonnull originalURLString, NSArray<NSDictionary<NSString*, NSString*>*> *_Nullable parameters);
 
 @interface AXHTTPClientResponse : NSObject
 /// Object type.
