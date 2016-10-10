@@ -378,7 +378,7 @@ NSString *const AXHTTPCompletionUserInfoStatusCodeKey = @"AXHTTPCompletionUserIn
                     // Is main thread.
                     BOOL mainThread = [NSThread isMainThread];
                     if (mainThread) {
-                        clientResp.object = [cls objectForPrimaryKey:[responseObject valueForKey:@"objectId"]];
+                        clientResp.object = [cls objectInRealm:realm forPrimaryKey:[responseObject valueForKey:@"objectId"]];
                         
                         if (completion) {
                             completion(clientResp, nil, userInfo);
@@ -386,7 +386,7 @@ NSString *const AXHTTPCompletionUserInfoStatusCodeKey = @"AXHTTPCompletionUserIn
                     } else {
                         dispatch_async(dispatch_get_main_queue(), ^{
                             
-                            clientResp.object = [cls objectForPrimaryKey:[responseObject valueForKey:@"objectId"]];
+                            clientResp.object = [cls objectInRealm:realm forPrimaryKey:[responseObject valueForKey:@"objectId"]];
                             if (completion) {
                                 completion(clientResp, nil, userInfo);
                             }
@@ -443,7 +443,7 @@ NSString *const AXHTTPCompletionUserInfoStatusCodeKey = @"AXHTTPCompletionUserIn
                     // Is main thread.
                     BOOL mainThread = [NSThread isMainThread];
                     if (mainThread) {
-                        clientResp.results = [cls allObjects];
+                        clientResp.results = [cls allObjectsInRealm:realm];
                         
                         if (completion) {
                             completion(clientResp, nil, userInfo);
@@ -451,7 +451,7 @@ NSString *const AXHTTPCompletionUserInfoStatusCodeKey = @"AXHTTPCompletionUserIn
                     } else {
                         dispatch_async(dispatch_get_main_queue(), ^{
                             
-                            clientResp.results = [cls allObjects];
+                            clientResp.results = [cls allObjectsInRealm:realm];
                             if (completion) {
                                 completion(clientResp, nil, userInfo);
                             }

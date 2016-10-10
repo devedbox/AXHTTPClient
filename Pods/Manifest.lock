@@ -19,7 +19,7 @@ PODS:
     - MJRefresh (~> 3.0.0)
     - pop
   - CocoaSecurity (1.2.4)
-  - JYObjectModule (0.0.13):
+  - JYObjectModule (0.0.14):
     - CocoaSecurity
     - MJExtension
     - Realm
@@ -47,7 +47,7 @@ SPEC CHECKSUMS:
   AXAESCrypt: 44c869a40613ce28b42856d176806e454bc715eb
   AXExtensions: eb2ada06b16cf39b4960bee159d7fcf542b16e23
   CocoaSecurity: d288a6f87e0f363823d2cb83e753814a6944f71a
-  JYObjectModule: d9eff1d4526e7b6ec0e38377a08155993fe9881b
+  JYObjectModule: c35a7cb30aa31bd9fc2dbe5386db1278922f4642
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
   MJRefresh: fafde8f18f4afd66b434331a9beb67a6c0264056
   pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
@@ -57,4 +57,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: f5aac267390c79690a1a7268349d521ef5fd5c88
 
-COCOAPODS: 1.1.0.beta.2
+COCOAPODS: 1.1.0.rc.2
