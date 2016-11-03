@@ -40,6 +40,12 @@
  @return a Class for user objects.
  */
 + (Class _Nonnull)classForUserObjects;
+/**
+ Get the class of client object to fetch objects from realm.
+ 
+ @return a Class for client object.
+ */
++ (Class _Nonnull)classForClient;
 @end
 /*!
  *  JYClientObject
@@ -55,10 +61,11 @@
 + (BOOL)unactiveClientWithUserId:(NSString * _Nonnull)userId;
 
 
-/// Store the token in the realm with.
+/// Store the token for actived client.
 ///
 /// @param token token.
 + (void)storeClientTokenWithToken:(NSString *_Nonnull)token;
++ (NSString *_Nullable)tokenForActivedClient;
 
 + (void)storeEtag:(NSString *_Nonnull)etag forEtagFlag:(NSString *_Nonnull)etagFlag;
 + (NSString *_Nonnull)etagForEtagFlag:(NSString *_Nonnull)etagFlag;

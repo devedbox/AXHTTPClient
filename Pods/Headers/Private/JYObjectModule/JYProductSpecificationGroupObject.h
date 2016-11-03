@@ -1,0 +1,1 @@
+../../../JYObjectModule/JYObjectModule/Models/JYProductSpecificationGroupObject.h

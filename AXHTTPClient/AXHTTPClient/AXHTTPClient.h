@@ -146,8 +146,23 @@ typedef NS_ENUM(int64_t, AXHTTPClientStatusCode) {
 - (void)requestDidSuccess;
 - (void)requestDidFailWithStatusCode:(int64_t)statusCode;
 @end
+/// Handler of the client before the realm's transtions.
+///
+/// @param objects objects to be handled.
+///
+/// @param should stoage the objects. Return NO to distorage objects.
+typedef BOOL(^AXHTTPClientRequestHandler)(NSArray<JYRLMObject *> * _Nullable objects);
+
+@interface AXHTTPClientRequestOptions : NSObject
+/// Realm to store the object or objects.
+@property(strong, nonatomic) RLMRealm *realm;
+/// Configuration before the transitions of the object or objects.
+@property(copy, nonatomic) AXHTTPClientRequestHandler handler;
+@end
 
 @interface AXHTTPClientRequest : NSObject
+/// Options of request.
+@property(readwrite, strong, nonatomic) AXHTTPClientRequestOptions *options;
 /// URL string to request.
 @property(copy, nonatomic) NSString *URLString;
 /// Parameters of request.

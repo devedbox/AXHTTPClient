@@ -214,7 +214,7 @@ NSString *const AXHTTPCompletionUserInfoStatusCodeKey = @"AXHTTPCompletionUserIn
     objc_setAssociatedObject(self, _cmd, [NSDate date], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     return [self GET:request.URLString parameters:request.parameters progress:NULL success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
             {
-                [self handleRequestSuccessWithResponseObject:responseObject shouldStoreToRealm:request.shouldStoreToRealm requestDuration:[[NSDate date] timeIntervalSinceDate:objc_getAssociatedObject(self, _cmd)] compltion:completion];
+                [self handleRequestSuccessWithResponseObject:responseObject options:request.options shouldStoreToRealm:request.shouldStoreToRealm requestDuration:[[NSDate date] timeIntervalSinceDate:objc_getAssociatedObject(self, _cmd)] compltion:completion];
                 objc_setAssociatedObject(self, _cmd, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error)
             {
@@ -226,7 +226,7 @@ NSString *const AXHTTPCompletionUserInfoStatusCodeKey = @"AXHTTPCompletionUserIn
 {
     objc_setAssociatedObject(self, _cmd, [NSDate date], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     return [self HEAD:request.URLString parameters:request.parameters success:^(NSURLSessionDataTask * _Nonnull task) {
-        [self handleRequestSuccessWithResponseObject:nil shouldStoreToRealm:request.shouldStoreToRealm requestDuration:[[NSDate date] timeIntervalSinceDate:objc_getAssociatedObject(self, _cmd)] compltion:completion];
+        [self handleRequestSuccessWithResponseObject:nil options:request.options shouldStoreToRealm:request.shouldStoreToRealm requestDuration:[[NSDate date] timeIntervalSinceDate:objc_getAssociatedObject(self, _cmd)] compltion:completion];
         objc_setAssociatedObject(self, _cmd, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
         [self handleRequestFailureWithTask:task error:error requestDuration:[[NSDate date] timeIntervalSinceDate:objc_getAssociatedObject(self, _cmd)] completion:completion];
@@ -238,7 +238,7 @@ NSString *const AXHTTPCompletionUserInfoStatusCodeKey = @"AXHTTPCompletionUserIn
     objc_setAssociatedObject(self, _cmd, [NSDate date], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     return [self PUT:request.URLString parameters:request.parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject)
             {
-                [self handleRequestSuccessWithResponseObject:responseObject shouldStoreToRealm:request.shouldStoreToRealm requestDuration:[[NSDate date] timeIntervalSinceDate:objc_getAssociatedObject(self, _cmd)] compltion:completion];
+                [self handleRequestSuccessWithResponseObject:responseObject options:request.options shouldStoreToRealm:request.shouldStoreToRealm requestDuration:[[NSDate date] timeIntervalSinceDate:objc_getAssociatedObject(self, _cmd)] compltion:completion];
                 objc_setAssociatedObject(self, _cmd, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
             } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
                 [self handleRequestFailureWithTask:task error:error requestDuration:[[NSDate date] timeIntervalSinceDate:objc_getAssociatedObject(self, _cmd)] completion:completion];
@@ -250,7 +250,7 @@ NSString *const AXHTTPCompletionUserInfoStatusCodeKey = @"AXHTTPCompletionUserIn
     objc_setAssociatedObject(self, _cmd, [NSDate date], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     return [self POST:request.URLString parameters:request.parameters progress:NULL success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
             {
-                [self handleRequestSuccessWithResponseObject:responseObject shouldStoreToRealm:request.shouldStoreToRealm requestDuration:[[NSDate date] timeIntervalSinceDate:objc_getAssociatedObject(self, _cmd)] compltion:completion];
+                [self handleRequestSuccessWithResponseObject:responseObject options:request.options shouldStoreToRealm:request.shouldStoreToRealm requestDuration:[[NSDate date] timeIntervalSinceDate:objc_getAssociatedObject(self, _cmd)] compltion:completion];
                 objc_setAssociatedObject(self, _cmd, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error)
             {
@@ -263,7 +263,7 @@ NSString *const AXHTTPCompletionUserInfoStatusCodeKey = @"AXHTTPCompletionUserIn
     objc_setAssociatedObject(self, _cmd, [NSDate date], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     return [self POST:request.URLString parameters:request.parameters constructingBodyWithBlock:block progress:NULL success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
             {
-                [self handleRequestSuccessWithResponseObject:responseObject shouldStoreToRealm:request.shouldStoreToRealm requestDuration:[[NSDate date] timeIntervalSinceDate:objc_getAssociatedObject(self, _cmd)] compltion:completion];
+                [self handleRequestSuccessWithResponseObject:responseObject options:request.options shouldStoreToRealm:request.shouldStoreToRealm requestDuration:[[NSDate date] timeIntervalSinceDate:objc_getAssociatedObject(self, _cmd)] compltion:completion];
                 objc_setAssociatedObject(self, _cmd, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                 [self handleRequestFailureWithTask:task error:error requestDuration:[[NSDate date] timeIntervalSinceDate:objc_getAssociatedObject(self, _cmd)] completion:completion];
@@ -275,7 +275,7 @@ NSString *const AXHTTPCompletionUserInfoStatusCodeKey = @"AXHTTPCompletionUserIn
     objc_setAssociatedObject(self, _cmd, [NSDate date], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     return [self PATCH:request.URLString parameters:request.parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject)
             {
-                [self handleRequestSuccessWithResponseObject:responseObject shouldStoreToRealm:request.shouldStoreToRealm requestDuration:[[NSDate date] timeIntervalSinceDate:objc_getAssociatedObject(self, _cmd)] compltion:completion];
+                [self handleRequestSuccessWithResponseObject:responseObject options:request.options shouldStoreToRealm:request.shouldStoreToRealm requestDuration:[[NSDate date] timeIntervalSinceDate:objc_getAssociatedObject(self, _cmd)] compltion:completion];
                 objc_setAssociatedObject(self, _cmd, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
             } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
                 [self handleRequestFailureWithTask:task error:error requestDuration:[[NSDate date] timeIntervalSinceDate:objc_getAssociatedObject(self, _cmd)] completion:completion];
@@ -287,7 +287,7 @@ NSString *const AXHTTPCompletionUserInfoStatusCodeKey = @"AXHTTPCompletionUserIn
     objc_setAssociatedObject(self, _cmd, [NSDate date], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     return [self DELETE:request.URLString parameters:request.parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject)
             {
-                [self handleRequestSuccessWithResponseObject:responseObject shouldStoreToRealm:request.shouldStoreToRealm requestDuration:[[NSDate date] timeIntervalSinceDate:objc_getAssociatedObject(self, _cmd)] compltion:completion];
+                [self handleRequestSuccessWithResponseObject:responseObject options:request.options shouldStoreToRealm:request.shouldStoreToRealm requestDuration:[[NSDate date] timeIntervalSinceDate:objc_getAssociatedObject(self, _cmd)] compltion:completion];
                 objc_setAssociatedObject(self, _cmd, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
             } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
                 [self handleRequestFailureWithTask:task error:error requestDuration:[[NSDate date] timeIntervalSinceDate:objc_getAssociatedObject(self, _cmd)] completion:completion];
@@ -295,7 +295,7 @@ NSString *const AXHTTPCompletionUserInfoStatusCodeKey = @"AXHTTPCompletionUserIn
             }];
 }
 
-- (void)handleRequestSuccessWithResponseObject:(id)object shouldStoreToRealm:(BOOL)storeToRealm requestDuration:(NSTimeInterval)duration compltion:(AXHTTPCompletion)completion
+- (void)handleRequestSuccessWithResponseObject:(id)object options:(AXHTTPClientRequestOptions *)options shouldStoreToRealm:(BOOL)storeToRealm requestDuration:(NSTimeInterval)duration compltion:(AXHTTPCompletion)completion
 {
     NSMutableDictionary *userInfo = [@{AXHTTPCompletionUserInfoDurationKey:@(duration)} mutableCopy];
     
@@ -361,14 +361,20 @@ NSString *const AXHTTPCompletionUserInfoStatusCodeKey = @"AXHTTPCompletionUserIn
             //
             if (responseObject && storeToRealm && [cls shouldStoreToRealm]) {// Find the shouldStoreToRealm of JYRLMObject.
                 NSError *error;
-                RLMRealm *realm = JY_Realm;
+                RLMRealm *realm = options.realm?:JY_Realm;
                 
-                [realm beginWriteTransaction];
-                [realm addOrUpdateObject:responseObject];
-                [realm commitWriteTransaction:&error];
+                BOOL allowsToStore = YES;
+                if (options.handler) {
+                    allowsToStore = options.handler(@[responseObject]);
+                }
+                if (allowsToStore) {
+                    [realm beginWriteTransaction];
+                    [realm addOrUpdateObject:responseObject];
+                    [realm commitWriteTransaction:&error];
+                }
                 
                 // Handler error.
-                if (error) {
+                if (error || !allowsToStore) {
                     clientResp.object = responseObject;
                     if (completion) {
                         completion(clientResp, error, userInfo);
@@ -425,14 +431,20 @@ NSString *const AXHTTPCompletionUserInfoStatusCodeKey = @"AXHTTPCompletionUserIn
             //
             if (responseObjects.count && storeToRealm && [cls shouldStoreToRealm]) {
                 NSError *error;
-                RLMRealm *realm = JY_Realm;
+                RLMRealm *realm = options.realm?:JY_Realm;
                 
-                [realm beginWriteTransaction];
-                [realm addOrUpdateObjectsFromArray:responseObjects];
-                [realm commitWriteTransaction:&error];
+                BOOL allowsToStore = YES;
+                if (options.handler) {
+                    allowsToStore = options.handler(responseObjects);
+                }
+                if (allowsToStore) {
+                    [realm beginWriteTransaction];
+                    [realm addOrUpdateObjectsFromArray:responseObjects];
+                    [realm commitWriteTransaction:&error];
+                }
                 
                 // Handle with error object.
-                if (error) {
+                if (error || !allowsToStore) {
                     clientResp.objects = responseObjects;
                     if (completion) {
                         completion(clientResp, error, userInfo);
@@ -623,6 +635,12 @@ NSString *const AXHTTPCompletionUserInfoStatusCodeKey = @"AXHTTPCompletionUserIn
 @end
 
 @implementation AXHTTPClientRequest
+@end
+
+@implementation AXHTTPClientRequestOptions
+- (void)setHandler:(AXHTTPClientRequestHandler)handler {
+    _handler = [handler copy];
+}
 @end
 
 AXHTTPClientRequest *_Nonnull AXHTTPClientStoredRequest(NSString *_Nonnull URLString, id _Nullable parameters) {
