@@ -369,9 +369,7 @@ NSString *const AXHTTPCompletionUserInfoStatusCodeKey = @"AXHTTPCompletionUserIn
                 }
                 if (allowsToStore) {
                     [JY_RealmManager syncTransaction:^(RLMRealm * _Nonnull realm) {
-                        [realm beginWriteTransaction];
                         [realm addOrUpdateObject:responseObject];
-                        [realm commitWriteTransaction:&error];
                     } inRealm:realm];
                 }
                 
@@ -441,9 +439,7 @@ NSString *const AXHTTPCompletionUserInfoStatusCodeKey = @"AXHTTPCompletionUserIn
                 }
                 if (allowsToStore) {
                     [JY_RealmManager syncTransaction:^(RLMRealm * _Nonnull realm) {
-                        [realm beginWriteTransaction];
                         [realm addOrUpdateObjectsFromArray:responseObjects];
-                        [realm commitWriteTransaction:&error];
                     } inRealm:realm];
                 }
                 
