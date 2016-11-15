@@ -360,7 +360,7 @@ NSString *const AXHTTPCompletionUserInfoStatusCodeKey = @"AXHTTPCompletionUserIn
             JYRLMObject *responseObject = [self RLMObjectWithKeyValue:responseData class:JYResponseClassWithObjectTypeString(response.object)];
             //
             if (responseObject && storeToRealm && [cls shouldStoreToRealm]) {// Find the shouldStoreToRealm of JYRLMObject.
-                NSError *error;
+                NSError *__block error;
                 RLMRealm *realm = options.realm?:JY_Realm;
                 
                 BOOL allowsToStore = YES;
@@ -368,9 +368,11 @@ NSString *const AXHTTPCompletionUserInfoStatusCodeKey = @"AXHTTPCompletionUserIn
                     allowsToStore = options.handler(@[responseObject]);
                 }
                 if (allowsToStore) {
-                    [realm beginWriteTransaction];
-                    [realm addOrUpdateObject:responseObject];
-                    [realm commitWriteTransaction:&error];
+                    [JY_RealmManager syncTransaction:^(RLMRealm * _Nonnull realm) {
+                        [realm beginWriteTransaction];
+                        [realm addOrUpdateObject:responseObject];
+                        [realm commitWriteTransaction:&error];
+                    } inRealm:realm];
                 }
                 
                 // Handler error.
@@ -430,7 +432,7 @@ NSString *const AXHTTPCompletionUserInfoStatusCodeKey = @"AXHTTPCompletionUserIn
             clientResp.page = response.page;
             //
             if (responseObjects.count && storeToRealm && [cls shouldStoreToRealm]) {
-                NSError *error;
+                NSError *__block error;
                 RLMRealm *realm = options.realm?:JY_Realm;
                 
                 BOOL allowsToStore = YES;
@@ -438,9 +440,11 @@ NSString *const AXHTTPCompletionUserInfoStatusCodeKey = @"AXHTTPCompletionUserIn
                     allowsToStore = options.handler(responseObjects);
                 }
                 if (allowsToStore) {
-                    [realm beginWriteTransaction];
-                    [realm addOrUpdateObjectsFromArray:responseObjects];
-                    [realm commitWriteTransaction:&error];
+                    [JY_RealmManager syncTransaction:^(RLMRealm * _Nonnull realm) {
+                        [realm beginWriteTransaction];
+                        [realm addOrUpdateObjectsFromArray:responseObjects];
+                        [realm commitWriteTransaction:&error];
+                    } inRealm:realm];
                 }
                 
                 // Handle with error object.
@@ -516,65 +520,54 @@ NSString *const AXHTTPCompletionUserInfoStatusCodeKey = @"AXHTTPCompletionUserIn
 }
 #pragma mark - NSURLSessionDelegate
 
-- (void)URLSession:(NSURLSession *)session didBecomeInvalidWithError:(NSError *)error
-{
+- (void)URLSession:(NSURLSession *)session didBecomeInvalidWithError:(NSError *)error {
     [super URLSession:session didBecomeInvalidWithError:error];
 }
 
-- (void)URLSession:(NSURLSession *)session didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition disposition, NSURLCredential *credential))completionHandler
-{
+- (void)URLSession:(NSURLSession *)session didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition disposition, NSURLCredential *credential))completionHandler {
     [super URLSession:session didReceiveChallenge:challenge completionHandler:completionHandler];
 }
 
 #pragma mark - NSURLSessionTaskDelegate
 
-- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task willPerformHTTPRedirection:(NSHTTPURLResponse *)response newRequest:(NSURLRequest *)request completionHandler:(void (^)(NSURLRequest *))completionHandler
-{
+- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task willPerformHTTPRedirection:(NSHTTPURLResponse *)response newRequest:(NSURLRequest *)request completionHandler:(void (^)(NSURLRequest *))completionHandler {
     [super URLSession:session task:task willPerformHTTPRedirection:response newRequest:request completionHandler:completionHandler];
 }
 
-- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition disposition, NSURLCredential *credential))completionHandler
-{
+- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition disposition, NSURLCredential *credential))completionHandler {
     [super URLSession:session task:task didReceiveChallenge:challenge completionHandler:completionHandler];
 }
 
-- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task needNewBodyStream:(void (^)(NSInputStream *bodyStream))completionHandler
-{
+- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task needNewBodyStream:(void (^)(NSInputStream *bodyStream))completionHandler {
     [super URLSession:session task:task needNewBodyStream:completionHandler];
 }
 
-- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didSendBodyData:(int64_t)bytesSent totalBytesSent:(int64_t)totalBytesSent totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend
-{
+- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didSendBodyData:(int64_t)bytesSent totalBytesSent:(int64_t)totalBytesSent totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend {
     if (_writingProgress) {
         _writingProgress(bytesSent, totalBytesSent, totalBytesExpectedToSend);
     }
     [super URLSession:session task:task didSendBodyData:bytesSent totalBytesSent:totalBytesSent totalBytesExpectedToSend:totalBytesExpectedToSend];
 }
 
-- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error
-{
+- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error {
     [super URLSession:session task:task didCompleteWithError:error];
 }
 
 #pragma mark - NSURLSessionDataDelegate
 
-- (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveResponse:(NSURLResponse *)response completionHandler:(void (^)(NSURLSessionResponseDisposition disposition))completionHandler
-{
+- (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveResponse:(NSURLResponse *)response completionHandler:(void (^)(NSURLSessionResponseDisposition disposition))completionHandler {
     [super URLSession:session dataTask:dataTask didReceiveResponse:response completionHandler:completionHandler];
 }
 
-- (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didBecomeDownloadTask:(NSURLSessionDownloadTask *)downloadTask
-{
+- (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didBecomeDownloadTask:(NSURLSessionDownloadTask *)downloadTask {
     [super URLSession:session dataTask:dataTask didBecomeDownloadTask:downloadTask];
 }
 
-- (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data
-{
+- (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data {
     [super URLSession:session dataTask:dataTask didReceiveData:data];
 }
 
-- (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask willCacheResponse:(NSCachedURLResponse *)proposedResponse completionHandler:(void (^)(NSCachedURLResponse *cachedResponse))completionHandler
-{
+- (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask willCacheResponse:(NSCachedURLResponse *)proposedResponse completionHandler:(void (^)(NSCachedURLResponse *cachedResponse))completionHandler {
     [super URLSession:session dataTask:dataTask willCacheResponse:proposedResponse completionHandler:completionHandler];
 }
 

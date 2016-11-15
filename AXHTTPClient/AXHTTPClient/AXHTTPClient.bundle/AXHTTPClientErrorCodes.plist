@@ -74,6 +74,8 @@
 	<string>查询数据错误.</string>
 	<key>7004</key>
 	<string>数据格式错误.</string>
+	<key>7005</key>
+	<string>数据不属于自己.</string>
 	<key>8000</key>
 	<string>支付渠道暂未开通.</string>
 	<key>8001</key>
