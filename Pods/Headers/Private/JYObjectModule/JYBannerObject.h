@@ -1,1 +1,0 @@
-../../../JYObjectModule/JYObjectModule/Models/JYBannerObject.h
