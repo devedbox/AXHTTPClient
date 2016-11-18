@@ -136,6 +136,8 @@
 	<string>钱包出错.</string>
 	<key>13001</key>
 	<string>提现金额超出钱包可提金额.</string>
+	<key>13003</key>
+	<string>钱包余额不足.</string>
 	<key>14000</key>
 	<string>此账号已是代理账号.</string>
 	<key>14001</key>
@@ -147,6 +149,36 @@
 	<key>14004</key>
 	<string>此账号不是代理或代理失效.</string>
 	<key>14005</key>
-	<string>此账号不能添加下级代理</string>
+	<string>此账号不能添加下级代理.</string>
+	<key>15001</key>
+	<string>商品已失效.</string>
+	<key>15002</key>
+	<string>商品不存在或已被删除.</string>
+	<key>15003</key>
+	<string>商品库存不足.</string>
+	<key>15004</key>
+	<string>商品规格错误.</string>
+	<key>16001</key>
+	<string>红包已失效.</string>
+	<key>16002</key>
+	<string>红包不存在或已被删除.</string>
+	<key>16003</key>
+	<string>红包金额错误.</string>
+	<key>16004</key>
+	<string>红包不属于自己.</string>
+	<key>16005</key>
+	<string>红包未满足使用条件.</string>
+	<key>16006</key>
+	<string>红包不在有效期.</string>
+	<key>16007</key>
+	<string>红包还未到领取时间.</string>
+	<key>16008</key>
+	<string>红包已过领取时间.</string>
+	<key>16009</key>
+	<string>红包已被领光.</string>
+	<key>16010</key>
+	<string>红包不支持用户领取.</string>
+	<key>16011</key>
+	<string>红包领取数量已达上限.</string>
 </dict>
 </plist>

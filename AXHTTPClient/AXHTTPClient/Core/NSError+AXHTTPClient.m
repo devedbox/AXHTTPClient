@@ -46,7 +46,7 @@ NSString*  AXURLResponseStatusWithStatusCode(int64_t statusCode) {
     // Get the HTTP status code info plist.
     NSDictionary *statusInfo = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle bundleForClass:NSClassFromString(@"AXHTTPClient")] pathForResource:@"AXHTTPClient.bundle/AXHTTPClientErrorCodes" ofType:@"plist"]];
     // Get the status message from status info plist.
-    NSString *statusMessage = statusInfo[[NSString stringWithFormat:@"%@", @(statusCode)]];
+    NSString *statusMessage = [statusInfo[[NSString stringWithFormat:@"%@", @(statusCode)]] stringByAppendingString:[NSString stringWithFormat:@"(%@)", @(statusCode)]];
     // Return the message.
     return statusMessage?:@"__unspecified";
 }
@@ -55,7 +55,7 @@ NSString*  AXHTTPStatusWithStatusCode(int64_t statusCode) {
     // Get the HTTP status code info plist.
     NSDictionary *statusInfo = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle bundleForClass:NSClassFromString(@"AXHTTPClient")] pathForResource:@"AXHTTPClient.bundle/HTTPStatusCodes" ofType:@"plist"]];
     // Get the status message from status info plist.
-    NSString *statusMessage = statusInfo[[NSString stringWithFormat:@"%@", @(statusCode)]];
+    NSString *statusMessage = [statusInfo[[NSString stringWithFormat:@"%@", @(statusCode)]] stringByAppendingString:[NSString stringWithFormat:@"(%@)", @(statusCode)]];
     // Return the message.
     return statusMessage?:@"__unspecified";
 }
