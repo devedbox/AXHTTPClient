@@ -19,18 +19,18 @@ PODS:
     - MJRefresh (~> 3.0.0)
     - pop
   - CocoaSecurity (1.2.4)
-  - JYObjectModule (0.0.26):
+  - JYObjectModule (0.0.27):
     - CocoaSecurity
     - MJExtension
-    - Realm (<= 2.0.3)
+    - Realm
     - SDWebImage
     - UICKeyChainStore
   - MJExtension (3.0.13)
   - MJRefresh (3.0.8)
   - pop (1.0.9)
-  - Realm (2.0.3):
-    - Realm/Headers (= 2.0.3)
-  - Realm/Headers (2.0.3)
+  - Realm (2.1.0):
+    - Realm/Headers (= 2.1.0)
+  - Realm/Headers (2.1.0)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
@@ -47,11 +47,11 @@ SPEC CHECKSUMS:
   AXAESCrypt: 44c869a40613ce28b42856d176806e454bc715eb
   AXExtensions: eb2ada06b16cf39b4960bee159d7fcf542b16e23
   CocoaSecurity: d288a6f87e0f363823d2cb83e753814a6944f71a
-  JYObjectModule: fe3cf11e54831e02baf43d15f83de0567fd44ee6
+  JYObjectModule: 9a0b36fa5e4af088bce519f789e43b3b06c2c20c
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
   MJRefresh: fafde8f18f4afd66b434331a9beb67a6c0264056
   pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
-  Realm: 5f008bfe3c8c47142eddfc30b8c1584cde22db24
+  Realm: bc829ad0ef3d4eea70c34cfcc3b1704d18d50df1
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   UICKeyChainStore: f1cbd42216a113f0165de1e733e62905b8823432
 
