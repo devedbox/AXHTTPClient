@@ -380,7 +380,9 @@ NSString *const AXHTTPCompletionUserInfoStatusCodeKey = @"AXHTTPCompletionUserIn
                         completion(clientResp, error, userInfo);
                     }
                 } else {
+                    /* Fix the issue: https://github.com/realm/realm-cocoa/issues/4345 since realm version 2.1.0.
                     [realm refresh];
+                     */
                     // Is main thread.
                     BOOL mainThread = [NSThread isMainThread];
                     if (mainThread) {
@@ -450,7 +452,9 @@ NSString *const AXHTTPCompletionUserInfoStatusCodeKey = @"AXHTTPCompletionUserIn
                         completion(clientResp, error, userInfo);
                     }
                 } else {
+                    /* Fix the issue: https://github.com/realm/realm-cocoa/issues/4345 since realm version 2.1.0.
                     [realm refresh];
+                     */
                     
                     // Is main thread.
                     BOOL mainThread = [NSThread isMainThread];
