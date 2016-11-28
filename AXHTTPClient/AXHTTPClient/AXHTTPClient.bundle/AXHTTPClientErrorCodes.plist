@@ -158,6 +158,8 @@
 	<string>商品库存不足.</string>
 	<key>15004</key>
 	<string>商品规格错误.</string>
+	<key>15005</key>
+	<string>商品不能兑换.</string>
 	<key>16001</key>
 	<string>红包已失效.</string>
 	<key>16002</key>
