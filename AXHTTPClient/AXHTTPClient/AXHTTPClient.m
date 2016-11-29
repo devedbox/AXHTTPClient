@@ -359,7 +359,7 @@ NSString *const AXHTTPCompletionUserInfoStatusCodeKey = @"AXHTTPCompletionUserIn
             //
             JYRLMObject *responseObject = [self RLMObjectWithKeyValue:responseData class:JYResponseClassWithObjectTypeString(response.object)];
             //
-            if (responseObject && storeToRealm && [cls shouldStoreToRealm]) {// Find the shouldStoreToRealm of JYRLMObject.
+            if (/*responseObject && */storeToRealm && [cls shouldStoreToRealm]) {// Find the shouldStoreToRealm of JYRLMObject.
                 NSError *__block error;
                 RLMRealm *realm = options.realm?:JY_Realm;
                 
@@ -431,7 +431,7 @@ NSString *const AXHTTPCompletionUserInfoStatusCodeKey = @"AXHTTPCompletionUserIn
             // Set the page to the client resp object.
             clientResp.page = response.page;
             //
-            if (responseObjects.count && storeToRealm && [cls shouldStoreToRealm]) {
+            if (/*responseObjects.count && */storeToRealm && [cls shouldStoreToRealm]) {
                 NSError *__block error;
                 RLMRealm *realm = options.realm?:JY_Realm;
                 
