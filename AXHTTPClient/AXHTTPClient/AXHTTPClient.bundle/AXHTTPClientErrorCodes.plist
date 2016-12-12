@@ -182,5 +182,21 @@
 	<string>红包不支持用户领取.</string>
 	<key>16011</key>
 	<string>红包领取数量已达上限.</string>
+	<key>17001</key>
+	<string>账号已绑定其他微信.</string>
+	<key>17002</key>
+	<string>账号已绑定其他微博.</string>
+	<key>17003</key>
+	<string>该微信已绑定其他账号.</string>
+	<key>17004</key>
+	<string>该微博已绑定其他账号.</string>
+	<key>17005</key>
+	<string>微信授权参数错误.</string>
+	<key>17006</key>
+	<string>微博授权参数错误.</string>
+	<key>17007</key>
+	<string>绑定微信失败.</string>
+	<key>17008</key>
+	<string>绑定微博失败.</string>
 </dict>
 </plist>
