@@ -487,7 +487,7 @@ NSString *const AXHTTPCompletionUserInfoStatusCodeKey = @"AXHTTPCompletionUserIn
         // Handle failure.
         [self requestDidFailWithStatusCode:statusCode];
         // Handle faild response and call the callback block.
-        NSError *error = [NSError errorWithDomain:AXURLResponseErrorDomin code:(int)statusCode userInfo:@{NSLocalizedDescriptionKey:AXURLResponseStatusWithStatusCode(statusCode)}];
+        NSError *error = [NSError errorWithDomain:AXURLResponseErrorDomin code:(int)statusCode userInfo:@{NSLocalizedDescriptionKey:_shouldAddStatusCodeToStatus?AXURLResponseStatusWithStatusCode(statusCode):AXURLResponseStatusWithStatusCodeIgnoreStatusCode(statusCode)}];
         //
         if (completion) completion(clientResp, error, userInfo);
     }

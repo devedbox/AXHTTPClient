@@ -27,6 +27,10 @@
     
     NSLog(@"URL Response status: %@", AXURLResponseStatusWithStatusCode(4001));
     
+    NSLog(@"HTTP status: %@", AXHTTPStatusWithStatusCodeIgnoreStatusCode(404));
+    
+    NSLog(@"URL Response status: %@", AXURLResponseStatusWithStatusCodeIgnoreStatusCode(4001));
+    
     NSDictionary *product = @{};
     NSDictionary *orderInfo = @{@"product":product, @"images":@[@{@"url":@"www.baidu.com"}], @"comments":@[@{@"content":@"测试", @"images":@[@{@"url":@"www.jiangtour.com"}]}]};
     JYPostObject *order = [JYPostObject objectWithKeyValue:orderInfo];

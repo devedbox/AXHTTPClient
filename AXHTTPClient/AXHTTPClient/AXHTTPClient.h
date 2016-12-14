@@ -72,6 +72,8 @@ typedef NS_ENUM(int64_t, AXHTTPClientStatusCode) {
 @property(assign, nonatomic, getter=isSecuriyEnabled) BOOL securityEnabled;
 /// Writing progress block
 @property(copy, nonatomic, nullable) AXHTTPWritingProgress writingProgress;
+/// Status message with status code.
+@property(assign, nonatomic) BOOL shouldAddStatusCodeToStatus;
 #pragma mark - Shared intance.
 /// Get the shared client of http session manager.
 ///

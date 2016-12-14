@@ -37,6 +37,7 @@ FOUNDATION_EXPORT NSString *const AXURLResponseErrorDomin;
 ///
 /// @return a defined user info.
 NSString* _Nonnull AXURLResponseStatusWithStatusCode(int64_t statusCode);
+NSString* _Nonnull AXURLResponseStatusWithStatusCodeIgnoreStatusCode(int64_t statusCode);
 /// Domain of `AXDataErrorDomin`.
 ///
 /// Using the domain to locate the domain of error when client data errors occured.
@@ -62,6 +63,7 @@ FOUNDATION_EXPORT NSString *const AXHTTPErrorDomain;
 ///
 /// @return a defined user info.
 NSString* _Nonnull AXHTTPStatusWithStatusCode(int64_t statusCode);
+NSString* _Nonnull AXHTTPStatusWithStatusCodeIgnoreStatusCode(int64_t statusCode);
 
 @interface NSError (AXHTTPClient)
 @end

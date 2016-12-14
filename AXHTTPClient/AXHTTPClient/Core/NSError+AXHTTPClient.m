@@ -48,7 +48,16 @@ NSString*  AXURLResponseStatusWithStatusCode(int64_t statusCode) {
     // Get the status message from status info plist.
     NSString *statusMessage = [statusInfo[[NSString stringWithFormat:@"%@", @(statusCode)]] stringByAppendingString:[NSString stringWithFormat:@"(%@)", @(statusCode)]];
     // Return the message.
-    return statusMessage?:@"__unspecified";
+    return statusMessage?:@"未知错误";
+}
+
+NSString* AXURLResponseStatusWithStatusCodeIgnoreStatusCode(int64_t statusCode) {
+    // Get the HTTP status code info plist.
+    NSDictionary *statusInfo = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle bundleForClass:NSClassFromString(@"AXHTTPClient")] pathForResource:@"AXHTTPClient.bundle/AXHTTPClientErrorCodes" ofType:@"plist"]];
+    // Get the status message from status info plist.
+    NSString *statusMessage = statusInfo[[NSString stringWithFormat:@"%@", @(statusCode)]];
+    // Return the message.
+    return statusMessage?:@"未知错误";
 }
 
 NSString*  AXHTTPStatusWithStatusCode(int64_t statusCode) {
@@ -57,8 +66,16 @@ NSString*  AXHTTPStatusWithStatusCode(int64_t statusCode) {
     // Get the status message from status info plist.
     NSString *statusMessage = [statusInfo[[NSString stringWithFormat:@"%@", @(statusCode)]] stringByAppendingString:[NSString stringWithFormat:@"(%@)", @(statusCode)]];
     // Return the message.
-    return statusMessage?:@"__unspecified";
+    return statusMessage?:@"未知错误";
 }
 
+NSString*  AXHTTPStatusWithStatusCodeIgnoreStatusCode(int64_t statusCode) {
+    // Get the HTTP status code info plist.
+    NSDictionary *statusInfo = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle bundleForClass:NSClassFromString(@"AXHTTPClient")] pathForResource:@"AXHTTPClient.bundle/HTTPStatusCodes" ofType:@"plist"]];
+    // Get the status message from status info plist.
+    NSString *statusMessage = statusInfo[[NSString stringWithFormat:@"%@", @(statusCode)]];
+    // Return the message.
+    return statusMessage?:@"未知错误";
+}
 @implementation NSError (AXHTTPClient)
 @end
