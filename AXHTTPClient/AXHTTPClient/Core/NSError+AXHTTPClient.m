@@ -48,7 +48,7 @@ NSString*  AXURLResponseStatusWithStatusCode(int64_t statusCode) {
     // Get the status message from status info plist.
     NSString *statusMessage = [statusInfo[[NSString stringWithFormat:@"%@", @(statusCode)]] stringByAppendingString:[NSString stringWithFormat:@"(%@)", @(statusCode)]];
     // Return the message.
-    return statusMessage?:@"未知错误";
+    return statusMessage;
 }
 
 NSString* AXURLResponseStatusWithStatusCodeIgnoreStatusCode(int64_t statusCode) {
@@ -57,7 +57,7 @@ NSString* AXURLResponseStatusWithStatusCodeIgnoreStatusCode(int64_t statusCode) 
     // Get the status message from status info plist.
     NSString *statusMessage = statusInfo[[NSString stringWithFormat:@"%@", @(statusCode)]];
     // Return the message.
-    return statusMessage?:@"未知错误";
+    return statusMessage;
 }
 
 NSString*  AXHTTPStatusWithStatusCode(int64_t statusCode) {
@@ -66,7 +66,7 @@ NSString*  AXHTTPStatusWithStatusCode(int64_t statusCode) {
     // Get the status message from status info plist.
     NSString *statusMessage = [statusInfo[[NSString stringWithFormat:@"%@", @(statusCode)]] stringByAppendingString:[NSString stringWithFormat:@"(%@)", @(statusCode)]];
     // Return the message.
-    return statusMessage?:@"未知错误";
+    return statusMessage;
 }
 
 NSString*  AXHTTPStatusWithStatusCodeIgnoreStatusCode(int64_t statusCode) {
@@ -75,7 +75,7 @@ NSString*  AXHTTPStatusWithStatusCodeIgnoreStatusCode(int64_t statusCode) {
     // Get the status message from status info plist.
     NSString *statusMessage = statusInfo[[NSString stringWithFormat:@"%@", @(statusCode)]];
     // Return the message.
-    return statusMessage?:@"未知错误";
+    return statusMessage;
 }
 @implementation NSError (AXHTTPClient)
 @end
