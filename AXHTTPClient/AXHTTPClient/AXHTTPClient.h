@@ -178,6 +178,9 @@ AXHTTPClientRequest *_Nonnull AXHTTPClientUnstoredRequest(NSString *_Nonnull URL
 
 NSString *_Nonnull AXHTTPClientRequestURLString(NSString *_Nonnull originalURLString, NSArray<NSDictionary<NSString*, NSString*>*> *_Nullable parameters);
 
+NSString *_Nullable AXHTTPClientResponsePrimaryMessageWithResponse(AXHTTPClientResponse *_Nullable response);
+NSString *_Nullable AXHTTPClientResponseDetailMessageWithResponse(AXHTTPClientResponse *_Nullable response);
+
 @interface AXHTTPClientResponse : NSObject
 /// Object type.
 @property(copy,   nonatomic, nullable) NSString *objType;

@@ -487,7 +487,7 @@ NSString *const AXHTTPCompletionUserInfoStatusCodeKey = @"AXHTTPCompletionUserIn
         // Handle failure.
         [self requestDidFailWithStatusCode:statusCode];
         // Handle faild response and call the callback block.
-        NSError *error = [NSError errorWithDomain:AXURLResponseErrorDomin code:(int)statusCode userInfo:@{NSLocalizedDescriptionKey:_shouldAddStatusCodeToStatus?AXURLResponseStatusWithStatusCode(statusCode):AXURLResponseStatusWithStatusCodeIgnoreStatusCode(statusCode)}];
+        NSError *error = [NSError errorWithDomain:AXURLResponseErrorDomin code:(int)statusCode userInfo:@{NSLocalizedDescriptionKey:(_shouldAddStatusCodeToStatus?AXURLResponseStatusWithStatusCode(statusCode):AXURLResponseStatusWithStatusCodeIgnoreStatusCode(statusCode))?:AXHTTPClientResponsePrimaryMessageWithResponse(clientResp)}];
         //
         if (completion) completion(clientResp, error, userInfo);
     }
@@ -671,4 +671,19 @@ NSString *_Nonnull AXHTTPClientRequestURLString(NSString *_Nonnull originalURLSt
     
     NSString *URLString = [originalURLString stringByAppendingPathComponent:paramString];
     return URLString;
+}
+
+NSString *_Nullable AXHTTPClientResponsePrimaryMessageWithResponse(AXHTTPClientResponse *_Nullable response) {
+    NSString *message = response.response[@"message"];
+    if (![[NSPredicate predicateWithFormat:@"SELF CONTAINS[cd] '. '"] evaluateWithObject:message]) return response.response[@"message"];
+    NSArray *components = [message componentsSeparatedByString:@". "];
+    return [[components firstObject] stringByAppendingString:@"."];
+}
+
+NSString *_Nonnull AXHTTPClientResponseDetailMessageWithResponse(AXHTTPClientResponse *response) {
+    NSString *message = response.response[@"message"];
+    if (![[NSPredicate predicateWithFormat:@"SELF CONTAINS[cd] '. '"] evaluateWithObject:message]) return nil;
+    NSArray *components = [message componentsSeparatedByString:@". "];
+    if (components.count <= 1) return nil;
+    return [components lastObject];
 }
